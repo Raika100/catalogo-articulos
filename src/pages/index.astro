@@ -1,17 +1,410 @@
 ---
-
+import { products } from "../data/products.ts";
+import { WHATSAPP_NUMBER, SITE_URL, SITE_NAME } from "../config/site.ts";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{SITE_NAME}</title>
+    <style>
+      :root {
+        --bg: #f6f4ef;
+        --surface: rgba(255, 255, 255, 0.88);
+        --text: #18181b;
+        --muted: #666b75;
+        --border: rgba(24, 24, 27, 0.08);
+        --shadow: 0 18px 40px rgba(17, 24, 39, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Inter, Arial, sans-serif;
+        background: linear-gradient(180deg, #f8f6f1 0%, #f1ede6 100%);
+        color: var(--text);
+      }
+
+      .container {
+        width: min(1200px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(12px);
+        background: rgba(246, 244, 239, 0.72);
+        border-bottom: 1px solid rgba(24, 24, 27, 0.05);
+        z-index: 10;
+      }
+
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.03em;
+      }
+
+      .cta {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: white;
+        box-shadow: var(--shadow);
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .hero {
+        padding: 36px 0 20px;
+      }
+
+      .hero-card {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.65));
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        box-shadow: var(--shadow);
+        border-radius: 30px;
+        padding: 32px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: white;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1;
+      }
+
+      .hero p {
+        max-width: 720px;
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 1.02rem;
+      }
+
+      .filters {
+        padding: 4px 0 18px;
+      }
+
+      .filters-card {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 12px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.84);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .input,
+      .select,
+      .checkbox-wrap {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: white;
+        padding: 14px 16px;
+        font-size: 0.95rem;
+      }
+
+      .checkbox-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .checkbox-wrap input { margin: 0; }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        padding: 12px 0 48px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .image-wrap {
+        position: relative;
+        aspect-ratio: 4 / 5;
+      }
+
+      .image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        border-radius: 999px;
+        padding: 8px 12px;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .badge.available { background: rgba(31, 122, 79, 0.92); }
+      .badge.sold { background: rgba(159, 18, 57, 0.92); }
+
+      .card-body { padding: 18px; }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+
+      .price {
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .meta span {
+        background: #f0ece4;
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 8px 10px;
+        font-size: 0.82rem;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .btn-primary {
+        background: #111827;
+        color: white;
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.8);
+        color: #111827;
+      }
+
+      .empty-state {
+        display: none;
+        margin-top: 10px;
+        padding: 24px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--border);
+        text-align: center;
+        color: var(--muted);
+        box-shadow: var(--shadow);
+      }
+
+      @media (max-width: 900px) {
+        .filters-card { grid-template-columns: 1fr 1fr; }
+        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 640px) {
+        .grid,
+        .filters-card { grid-template-columns: 1fr; }
+
+        .hero-card { padding: 24px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">{SITE_NAME}</div>
+        <a class="cta" href="#catalogo">Ver catálogo</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-card">
+            <span class="eyebrow">Selección visual de artículos</span>
+            <h1>Catálogo de artículos disponibles</h1>
+            <p>
+              Explora piezas seleccionadas de ropa, calzado, bolsas y accesorios.
+              Encuentra tus favoritos y contáctame directamente por WhatsApp.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="filters">
+        <div class="container">
+          <div class="filters-card">
+            <input
+              id="searchInput"
+              class="input"
+              type="text"
+              placeholder="Buscar por nombre, marca o tipo"
+            />
+
+            <select id="categoryFilter" class="select">
+              <option value="">Todas las categorías</option>
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
+            </select>
+
+            <label class="checkbox-wrap">
+              <input id="availableOnly" type="checkbox" />
+              <span>Solo disponibles</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalogo">
+        <div class="container">
+          <div class="grid" id="productsGrid">
+            {products.map((product) => {
+              const productUrl = `${SITE_URL}/producto/${product.slug}`;
+              const message = `Hola me interesa este articulo, esta disponible?\n\n${productUrl}`;
+              const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+              return (
+                <article
+                  class="card product-card"
+                  data-category={product.category}
+                  data-available={product.available ? "true" : "false"}
+                  data-search={`${product.name} ${product.brand} ${product.type}`.toLowerCase()}
+                >
+                  <div class="image-wrap">
+                    <img src={product.images[0]} alt={product.name} />
+                    <span class={`badge ${product.available ? "available" : "sold"}`}>
+                      {product.available ? "Disponible" : "Vendido"}
+                    </span>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="top">
+                      <h2 class="title">{product.name}</h2>
+                      <div class="price">${product.price} MXN</div>
+                    </div>
+
+                    <div class="meta">
+                      <span>{product.category}</span>
+                      <span>{product.type}</span>
+                      <span>{product.size}</span>
+                    </div>
+
+                    <div class="actions">
+                      <a
+                        class="btn btn-primary"
+                        href={whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Me interesa
+                      </a>
+
+                      <a class="btn btn-ghost" href={`/producto/${product.slug}`}>
+                        Ver más
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            No se encontraron artículos con esos filtros.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const categoryFilter = document.getElementById("categoryFilter");
+      const availableOnly = document.getElementById("availableOnly");
+      const cards = document.querySelectorAll(".product-card");
+      const emptyState = document.getElementById("emptyState");
+
+      const applyFilters = () => {
+        const text = (searchInput?.value || "").toLowerCase().trim();
+        const category = categoryFilter?.value || "";
+        const onlyAvailable = availableOnly?.checked || false;
+
+        let visible = 0;
+
+        cards.forEach((card) => {
+          const matchesText = !text || card.dataset.search?.includes(text);
+          const matchesCategory = !category || card.dataset.category === category;
+          const matchesAvailability = !onlyAvailable || card.dataset.available === "true";
+
+          const show = matchesText && matchesCategory && matchesAvailability;
+          card.style.display = show ? "" : "none";
+
+          if (show) visible += 1;
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visible === 0 ? "block" : "none";
+        }
+      };
+
+      searchInput?.addEventListener("input", applyFilters);
+      categoryFilter?.addEventListener("change", applyFilters);
+      availableOnly?.addEventListener("change", applyFilters);
+    </script>
+  </body>
 </html>
