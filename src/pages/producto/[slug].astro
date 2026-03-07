@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 const productUrl = `${SITE_URL}/producto/${product.slug}`;
-const message = `Hola me interesa este articulo, esta disponible?\n\n${productUrl}`;
+const message = `Hola, me interesa este artículo, ¿Sigue disponible?\n\n${productUrl}`;
 const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 ---
 
