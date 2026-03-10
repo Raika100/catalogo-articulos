@@ -286,7 +286,7 @@ export const products = [
     price: 650,
     category: "Hombre",
     type: "Accesorios",
-    size: "34",
+    size: "42-44",
     brand: "Columbia",
     available: true,
     description: "Cinturón Columbia en color negro con diseño funcional y acabado sobrio. Un accesorio práctico con apariencia sólida.",
