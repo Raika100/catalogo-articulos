@@ -114,7 +114,7 @@ export const products = [
     available: true,
     description: "Set de 3 tangas Calvin Klein en tonos gris y negro con diseño moderno y líneas limpias. Presentación cómoda y estética cuidada.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085845/P013_F1_p7twt6.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773103467/P013_F1_shqinz.jpg",
       "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085847/P013_F2_ksrb93.jpg",
       "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085849/P013_F3_ub5i6x.jpg",
     ],
