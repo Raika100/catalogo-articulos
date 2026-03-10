@@ -46,6 +46,7 @@ export const products = [
     available: true,
     description: "Sandalias Calvin Klein en tono nude con estilo sutil y diseño estilizado. Un modelo visualmente suave y sofisticado.",
     images: [
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1772830408/P003_F1_iyay5f.jpg",
       "https://res.cloudinary.com/dmtirc1ig/image/upload/v1772830408/P003_F2_dvr5e1.jpg",
       "https://res.cloudinary.com/dmtirc1ig/image/upload/v1772830409/P003_F3_mqc9wy.jpg",
     ],
@@ -272,6 +273,7 @@ export const products = [
     available: true,
     description: "Set de 2 corbatas Perry Ellis en color negro con diseño formal y apariencia elegante. Presentación sobria y versátil.",
     images: [
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085821/P009_F1_bfuhxk.jpg",
       "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085823/P009_F2_m9asl4.jpg",
       "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085825/P009_F3_wigs9z.jpg",
       "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085826/P009_F4_dff4ts.jpg",
@@ -289,9 +291,9 @@ export const products = [
     available: true,
     description: "Cinturón Columbia en color negro con diseño funcional y acabado sobrio. Un accesorio práctico con apariencia sólida.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085834/P011_F1_xx3ovp.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085835/P011_F2_kn5x0l.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085837/P011_F3_tdzbtu.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085834/P011_F1_fkp7kb.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085836/P011_F2_chpqgy.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085838/P011_F3_irsfsc.jpg",
     ],
   },
   {
@@ -306,9 +308,9 @@ export const products = [
     available: true,
     description: "Cinturón reversible Calvin Klein en color negro con diseño moderno y acabado limpio. Un accesorio versátil y bien presentado.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085839/P012_F1_ovo0ka.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085841/P012_F2_lsqkyr.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085843/P012_F3_njdrpq.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085840/P012_F1_mufmz9.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085842/P012_F2_ztdexm.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085844/P012_F3_z2hyrq.jpg",
     ],
   },
   {
@@ -323,8 +325,8 @@ export const products = [
     available: true,
     description: "Cartera Tommy Hilfiger en color negro con diseño sobrio y estructura compacta. Apariencia elegante y funcional.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085878/P019_F1_rh3x8r.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085879/P019_F2_gzcrp0.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085879/P019_F1_d0dhzs.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085881/P019_F2_rwmou5.jpg",
     ],
   },
   {
@@ -339,8 +341,8 @@ export const products = [
     available: true,
     description: "Cartera Tommy Hilfiger en color café con diseño clásico y presencia discreta. Un accesorio limpio y bien equilibrado.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085881/P020_F1_e5lgv7.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085883/P020_F2_efx2pi.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085883/P020_F1_tcxha5.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085885/P020_F2_sgppwj.jpg",
     ],
   },
   {
@@ -355,8 +357,8 @@ export const products = [
     available: true,
     description: "Cartera Michael Kors en color café con diseño elegante y líneas modernas. Presentación sobria y cuidada.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085885/P021_F1_lahipj.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085887/P021_F2_cxj8my.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085887/P021_F1_o5ijkp.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085889/P021_F2_doaifa.jpg",
     ],
   },
   {
@@ -371,9 +373,9 @@ export const products = [
     available: true,
     description: "Cartera Levi's en color café con diseño casual y apariencia firme. Un accesorio funcional con estilo limpio.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085889/P022_F1_lch6wa.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085891/P022_F2_wo8eqg.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085893/P022_F3_tg1kgf.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085890/P022_F1_mguny7.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085894/P022_F2_t2mntd.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085894/P022_F3_nacsia.jpg",
     ],
   },
 
@@ -389,8 +391,8 @@ export const products = [
     available: true,
     description: "Set de 6 calcetas Tommy Hilfiger en color blanco con diseño limpio y presentación práctica. Un básico bien resuelto.",
     images: [
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085876/P018_F1_on3woi.jpg",
-      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085877/P018_F2_pfqiqg.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085876/P018_F1_jx9qnz.jpg",
+      "https://res.cloudinary.com/dmtirc1ig/image/upload/v1773085878/P018_F2_ciorvj.jpg",
     ],
   },
 ];
